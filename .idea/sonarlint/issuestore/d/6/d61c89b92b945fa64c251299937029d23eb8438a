@@ -1,0 +1,16 @@
+
+—
+java:S1186d"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(§Ûëè
+w
+java:S1450"aRemove the "sensorNameTextView" field and declare it as a local variable in the relevant methods.(„”÷ë
+x
+java:S1450"bRemove the "sensorValueTextView" field and declare it as a local variable in the relevant methods.(Ø²¿ý
+N	java:S106""9Replace this use of System.out or System.err by a logger.(«Œ«ä
+Q	java:S125#"<This block of commented-out lines of code should be removed.(†ÿ”ø
+V	java:S1254"<This block of commented-out lines of code should be removed.(Œâøÿÿÿÿ
+S	java:S106I"9Replace this use of System.out or System.err by a logger.(¸ÛÃÖúÿÿÿÿ
+N	java:S106J"9Replace this use of System.out or System.err by a logger.(·ô¥â
+Q	java:S125M"<This block of commented-out lines of code should be removed.(½«‰û
+V	java:S125S"<This block of commented-out lines of code should be removed.(¢Ê¹‚ûÿÿÿÿ
+L
+java:S1068"6Remove this unused "sensorNameTextView" private field.(„”÷ë
