@@ -7,5 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="favour_item_background">#F4E346</color>
+    <color name="chosen_sensors">#FFE500</color>
+    <color name="magnetic_sensor">#60ad5e</color>
+    <color name="dark_green">#005005</color>
+    <color name="primary_green">#2e7d32</color>
+    <color name="dark_gray">#2C2C2C</color>
 </resources>

@@ -1,5 +1,7 @@
 package pl.edu.pb.sensorappp;
 
+import static pl.edu.pb.sensorappp.SensorDetailsActivity.EXTRA_SENSOR_TYPE_PARAMETER;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -28,7 +30,7 @@ public class SensorActivity extends AppCompatActivity {
     private List<Sensor> sensorList;
     private RecyclerView recyclerView;
     private SensorAdapter adapter;
-    private final List<Integer> favouredSensors = Arrays.asList(Sensor.TYPE_LIGHT, Sensor.TYPE_ACCELEROMETER);
+    private final List<Integer> chosenSensors = Arrays.asList(Sensor.TYPE_PRESSURE, Sensor.TYPE_ACCELEROMETER, Sensor.TYPE_LIGHT);
     public static final int SENSOR_DETAILS_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
@@ -44,6 +46,7 @@ public class SensorActivity extends AppCompatActivity {
 
         for (Sensor sensor : sensorList) {
             Log.d("SENSOR_APP_TAG", "Sensor name: " + sensor.getName());
+            Log.d("SENSOR_APP_TAG", "Sensor type: " + sensor.getType());
             Log.d("SENSOR_APP_TAG", "Sensor vendor: " + sensor.getVendor());
             Log.d("SENSOR_APP_TAG", "Sensor max range: " + sensor.getMaximumRange());
         }
@@ -97,38 +100,20 @@ public class SensorActivity extends AppCompatActivity {
             View itemContainer = itemView.findViewById(R.id.list_item_sensor);
             View magneticContainer = itemView.findViewById(R.id.list_item_sensor);
 
-            if(favouredSensors.contains(sensor.getType())){
-                itemContainer.setBackgroundColor(getResources().getColor(R.color.favour_item_background));
+            if(chosenSensors.contains(sensor.getType())){
+                itemContainer.setBackgroundColor(getResources().getColor(R.color.chosen_sensors));
                 itemContainer.setOnClickListener(v->{
                     Intent intent = new Intent(SensorActivity.this, SensorDetailsActivity.class);
-                    intent.putExtra("SENSOR_TYPE_PARAMETER", sensor.getType());
+                    intent.putExtra(EXTRA_SENSOR_TYPE_PARAMETER, sensor.getType());
                     startActivityForResult(intent, SENSOR_DETAILS_ACTIVITY_REQUEST_CODE);
                 });
             }
 
-//            if(sensor.getType() == Sensor.TYPE_LIGHT){
-//                magneticContainer.setBackgroundColor(getResources().getColor(R.color.favour_item_background));
-//                magneticContainer.setOnClickListener(v->{
-//                    Intent intent = new Intent(SensorActivity.this, SensorDetailsActivity.class);
-//                    intent.putExtra("SENSOR_TYPE_PARAMETER", sensor.getType());
-//                    startActivityForResult(intent, SENSOR_DETAILS_ACTIVITY_REQUEST_CODE);
-//                });
-//            }
-//
-//            if(sensor.getType() == Sensor.TYPE_PRESSURE){
-//                magneticContainer.setBackgroundColor(getResources().getColor(R.color.favour_item_background));
-//                magneticContainer.setOnClickListener(v->{
-//                    Intent intent = new Intent(SensorActivity.this, SensorDetailsActivity.class);
-//                    intent.putExtra("SENSOR_TYPE_PARAMETER", sensor.getType());
-//                    startActivityForResult(intent, SENSOR_DETAILS_ACTIVITY_REQUEST_CODE);
-//                });
-//            }
-
             if(sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD){
-                magneticContainer.setBackgroundColor(getResources().getColor(R.color.purple_200));
+                magneticContainer.setBackgroundColor(getResources().getColor(R.color.magnetic_sensor));
                 magneticContainer.setOnClickListener(v->{
                 Intent intent = new Intent(SensorActivity.this, LocationActivity.class);
-                    intent.putExtra("SENSOR_TYPE_PARAMETER", sensor.getType());
+//                    intent.putExtra(EXTRA_SENSOR_TYPE_PARAMETER, sensor.getType());
                     startActivityForResult(intent, SENSOR_DETAILS_ACTIVITY_REQUEST_CODE);
                 });
             }
